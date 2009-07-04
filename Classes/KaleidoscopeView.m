@@ -172,7 +172,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 	if (rect.size.width+delta < MIN_SIZE_OF_SQUARE) {
 		self.squareBounds = [NSValue valueWithCGRect:CGRectMake(0, 0, MIN_SIZE_OF_SQUARE, MIN_SIZE_OF_SQUARE)];
 	} else if (rect.size.width+delta > MAX_SIZE_OF_SQUARE) {
-		self.squareBounds = [NSValue valueWithCGRect:CGRectMake(0, 0, rect.size.width+delta, rect.size.width+delta)];
+		self.squareBounds = [NSValue valueWithCGRect:CGRectMake(0, 0, MAX_SIZE_OF_SQUARE, MAX_SIZE_OF_SQUARE)];
 	} else {
 		self.squareBounds = [NSValue valueWithCGRect:CGRectMake(0, 0, rect.size.width+delta, rect.size.width+delta)];
 	}
