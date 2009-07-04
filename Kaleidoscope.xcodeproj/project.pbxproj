@@ -15,6 +15,7 @@
 		2899E5220DE3E06400AC0155 /* KaleidoscopeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* KaleidoscopeViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* KaleidoscopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* KaleidoscopeViewController.m */; };
+		6CAF35DE0FFEE447002A2631 /* KaleidoscopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CAF35DD0FFEE447002A2631 /* KaleidoscopeView.m */; };
 		6CC025680FEF75DD0098AE45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC025540FEF75A80098AE45 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,8 @@
 		28D7ACF70DDB3853001CB0EB /* KaleidoscopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaleidoscopeViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Kaleidoscope_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kaleidoscope_Prefix.pch; sourceTree = "<group>"; };
+		6CAF35DC0FFEE447002A2631 /* KaleidoscopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaleidoscopeView.h; sourceTree = "<group>"; };
+		6CAF35DD0FFEE447002A2631 /* KaleidoscopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaleidoscopeView.m; sourceTree = "<group>"; };
 		6CC025540FEF75A80098AE45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Kaleidoscope-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Kaleidoscope-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +56,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6CAF35DC0FFEE447002A2631 /* KaleidoscopeView.h */,
+				6CAF35DD0FFEE447002A2631 /* KaleidoscopeView.m */,
 				1D3623240D0F684500981E51 /* KaleidoscopeAppDelegate.h */,
 				1D3623250D0F684500981E51 /* KaleidoscopeAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* KaleidoscopeViewController.h */,
@@ -168,6 +173,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* KaleidoscopeAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* KaleidoscopeViewController.m in Sources */,
+				6CAF35DE0FFEE447002A2631 /* KaleidoscopeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
