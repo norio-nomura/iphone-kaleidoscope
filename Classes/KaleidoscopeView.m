@@ -197,6 +197,12 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 		
 		CGPoint prevPoint = [currentTouch previousLocationInView:self];
 		CGPoint curPoint = [currentTouch locationInView:self];
+		
+		CGRect screenRect = [[UIScreen mainScreen] bounds];
+		prevPoint.x -= screenRect.size.width/2;
+		prevPoint.y -= screenRect.size.height/2;
+		curPoint.x -= screenRect.size.width/2;
+		curPoint.y -= screenRect.size.height/2;
 		CGFloat sizeDelta = sqrt(curPoint.x*curPoint.x + curPoint.y*curPoint.y) - sqrt(prevPoint.x*prevPoint.x + prevPoint.y*prevPoint.y);
 		[self addSquareSize:sizeDelta];
 
