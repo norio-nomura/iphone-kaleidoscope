@@ -38,6 +38,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 @synthesize squareBounds;
 @synthesize currentTouch;
 @synthesize rotateLayer;
+@synthesize resizeIndicator;
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super initWithCoder:decoder]) {
@@ -79,6 +80,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 	[points release];
 	[squareBounds release];
 	[rotateLayer release];
+	[resizeIndicator release];
     [super dealloc];
 }
 
@@ -117,9 +119,9 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 	
 	self.rotateLayer = [CALayer layer];
 	CALayer *squareLayer;
+	NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
 	for (NSString *k in [self.points allKeys]) {
 		NSValue *v = [self.points objectForKey:k];
-		NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
 		
 		squareLayer = [self createSquare];
 		squareLayer.position = [v CGPointValue];
@@ -149,6 +151,15 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 		[self addObserver:squareLayer forKeyPath:@"squareBounds" options:options context:NULL];
 	}
 	[self.layer addSublayer:self.rotateLayer];
+	
+	self.resizeIndicator = [CALayer layer];
+	self.resizeIndicator.bounds = [self.squareBounds CGRectValue];
+	self.resizeIndicator.borderColor = CGColorRetain([[UIColor greenColor] CGColor]);
+	self.resizeIndicator.borderWidth = 1;
+	self.resizeIndicator.backgroundColor = CGColorRetain([[UIColor colorWithRed:0 green:1 blue:0 alpha:0.5] CGColor]);
+	self.resizeIndicator.hidden = YES;
+	[self addObserver:self.resizeIndicator forKeyPath:@"squareBounds" options:options context:NULL];
+	[self.layer addSublayer:self.resizeIndicator];
 }
 
 
@@ -186,6 +197,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (!currentTouch) {
 		currentTouch = [touches anyObject];
+		self.resizeIndicator.hidden = NO;
 	}
 }
 
@@ -221,6 +233,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	if ([touches containsObject:currentTouch]) {
 		currentTouch = nil;
+		self.resizeIndicator.hidden = YES;
 	}
 }
 
@@ -228,6 +241,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 	if ([touches containsObject:currentTouch]) {
 		currentTouch = nil;
+		self.resizeIndicator.hidden = YES;
 	}
 }
 
